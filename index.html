@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brahmi</title>
+    <style>
+        #userinput:hover{
+            margin-top: 20px;
+            border: 2px solid rgb(129, 181, 92);
+            height: 50px;
+            width: 250px;
+            font-size: 20px;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: #0a271d;
+            color: #ffffff;
+            text-align: center;
+            outline: none;
+        }
+        body {
+            background-color: #1e1e2e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #logo {
+            margin-top: 20px;
+            width: 100px;
+            height: auto;
+            font-size: 100px;
+        }
+        #userinput {
+            margin-top: 20px;
+            border: 2px solid rgb(129, 181, 92);
+            height: 40px;
+            width: 200px;
+            font-size: 20px;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: #0a271d;
+            color: #ffffff;
+            text-align: center;
+            outline: none;
+        }
+        
+        #outputbox {
+            margin-top: 20px;
+            border: 3px solid rgb(206, 114, 22);
+            height: 50px;
+            width: 300px;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 290px;
+            overflow:scroll;
+        }
+        #badadiv {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>English to Brahmi Convertor </h1>
+    <div id="badadiv">
+        <div id="logo">𑁍</div>
+    <input type="text" id="userinput">
+    <div id="outputbox"></div>
+    </div>
+    <script>
+        const userInput = document.getElementById("userinput");
+        const outputText = document.getElementById("outputbox");
+
+        userInput.addEventListener("input", updateValue);
+
+        function updateValue(e) {
+            const inputValue = e.target.value; // Get the current input value
+             // Flag to skip matra check
+
+   
+            // Here's where you'll process the input and set displayvalue
+            // For now, just display the raw input:
+            outputText.innerHTML = inputValue;  // Use textContent for text
+
+            // Example of how to handle specific characters (Hindi example)
+            // (This is a very basic example and would need to be expanded for
+            //  more complex Hindi input)
+            let skipNext=false;
+            let output = "";
+            for (let i = 0; i < inputValue.length-1; i++) {
+                const char = inputValue.substring(i,i+2);
+                if (skipNext) {
+                  skipNext = false; // Reset flag and skip this iteration
+                  continue;
+                 }
+
+                switch(char)
+                {
+                    //Consonant block
+                    case 'ka':
+                        output+='&#x11013';
+                        
+                        break;
+                    case 'kh':
+                        output+='&#x11014';
+                        
+                        break;
+                    case 'ga':
+                        output+='&#x11015';
+                        break;
+                    case 'gh':
+                        output+='&#x11016';
+                        
+                        break;
+                    case 'ng':
+                        output+='&#x11017';
+                        
+                        break;
+                    case 'ch':
+                        output+='&#x11018';
+                        
+                        break;
+                    case 'Ch':
+                        output+='&#x11019';
+                        
+                        break;
+                    case 'ja':
+                        output+='&#x1101A';
+                        
+                        break;
+                    case 'jh':
+                        output+='&#x1101B';
+                        
+                        break;
+                    case 'ny':
+                        output+='&#x1101C';
+                        
+                        break;
+                    case 'Ta':
+                        output+='&#x1101D';
+                        
+                        break;
+                    case 'Th':
+                        output+='&#x1101E';
+                        
+                        break;
+                    case 'Da':
+                        output+='&#x1101F';
+                        
+                        break;
+                    case 'Dh':
+                        output+='&#x11020';
+                        
+                        break;
+                        case 'nd':
+                        output+='&#x11021';
+                        
+                        break;
+                        case 'ta':
+                        output+='&#x11022';
+                        
+                        break;
+                        case 'th':
+                        output+='&#x11023';
+                        
+                        break;
+                        case 'da':
+                        output+='&#x11024';
+                        
+                        break;
+                        case 'dh':
+                        output+='&#x11025';
+                        
+                        break;
+                        case 'na':
+                        output+='&#x11026';
+                        
+                        break;
+                        case 'pa':
+                        output+='&#x11027';
+                        
+                        break;
+                        case 'ph':
+                        output+='&#x11028';
+                        
+                        break;
+                        case 'ba':
+                        output+='&#x11029';
+                        
+                        break;
+                        case 'bh':
+                        output+='&#x1102A';
+                        
+                        break;
+                        case 'ma':
+                        output+='&#x1102B';
+                        
+                        break;
+                        case 'ya':
+                        output+='&#x1102C';
+                        
+                        break;
+                        case 'ra':
+                        output+='&#x1102D';
+                        
+                        break;
+                        case 'la':
+                        output+='&#x1102E';
+                        
+                        break;
+                        case 'va':
+                        output+='&#x1102F';
+                        
+                        break;
+                        case 'sh':
+                        output+='&#x11030';
+                        
+                        break;
+                        case 'Sh':
+                        output+='&#x11031';
+                        
+                        break;
+                        case 'sa':
+                        output+='&#x11032';
+                        
+                        break;
+                        case 'ha':
+                        output+='&#x11033';
+                        
+                        break;
+                    
+                        //vowel block
+                        case 'aa':
+                        output+='&#x11005';
+                        skipNext=true;
+                        break;
+                        case 'AA':
+                        output+='&#x11006';
+                        skipNext=true;
+                        break;
+                        case 'ii':
+                        output+='&#x11007';
+                        skipNext=true;
+                        break;
+                        case 'II':
+                        output+='&#x11008';
+                        skipNext=true;
+                        break;
+                        case 'uu':
+                        output+='&#x11009';
+                        skipNext=true;
+                        break;
+                        case 'UU':
+                        output+='&#x1100A';
+                        skipNext=true;
+                        break;
+                        case 'rr':
+                        output+='&#x1100B';
+                        skipNext=true;
+                        break;
+                        case 'RR':
+                        output+='&#x1100C';
+                        skipNext=true;
+                        break;
+                        case 'll':
+                        output+='&#x1100D';
+                        skipNext=true;
+                        break;
+                        case 'LL':
+                        output+='&#x1100E';
+                        skipNext=true;
+                        break;
+                        case 'ee':
+                        output+='&#x1100F';
+                        skipNext=true;
+                        break;
+                        case 'EE':
+                        output+='&#x11010';
+                        skipNext=true;
+                        break;
+                        case 'oo':
+                        output+='&#x11011';
+                        skipNext=true;
+                        break;
+                        case 'OO':
+                        output+='&#x11012';
+                        skipNext=true;
+                        break;
+
+                        
+
+                        
+
+                }
+                // Matras
+                
+                if((i+1<inputValue.length))
+                {
+                    const ch=inputValue[i+1];
+                    switch(ch)
+                    {
+                        case 'A':
+                        output+='&#x11038';
+                        break;
+                        case 'i':
+                        output+='&#x1103A';
+                        break;
+                        case 'I':
+                        output+='&#x1103B';
+                        break;
+                        case 'u':
+                        output+='&#x1103C';
+                        break;
+                        case 'U':
+                        output+='&#x1103D';
+                        break;
+                        case 'x':
+                        output+='&#x1103E';
+                        break;
+                        case 'X':
+                        output+='&#x1103F';
+                        break;
+                        case 'e':
+                        output+='&#x11042';
+                        break;
+                        case 'E':
+                        output+='&#x11043';
+                        break;
+                        case 'o':
+                        output+='&#x11044';
+                        break;
+                        case 'O':
+                        output+='&#x11045';
+                        break;
+                        case 'q':
+                        output+='&#x11046';
+                        break;
+                        
+                        case '|':
+                        output+='&#x1104D';
+                        break;
+                    }
+                }
+
+            }
+            outputText.innerHTML = output;
+        }
+
+        // Initialize the display (optional)
+        outputText.innerHTML = ""; // Or some initial Hindi text
+    </script>
+</body>
+</html>
+
